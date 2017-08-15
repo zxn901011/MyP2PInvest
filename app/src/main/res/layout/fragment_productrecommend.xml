@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zxn.myp2pinvest.ui.randomLayout.StellarMap
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/stellar_map">
+
+    </com.zxn.myp2pinvest.ui.randomLayout.StellarMap>
+
+</LinearLayout>

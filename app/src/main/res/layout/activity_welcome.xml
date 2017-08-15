@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/start_background"
+    android:id="@+id/rl_welcome"
+    tools:context="com.zxn.myp2pinvest.activity.WelcomeActivity">
+    <ImageView
+        android:id="@+id/iv_welcome_icon"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/app_icon" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/iv_welcome_icon"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:text="点点金融"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前版本:"
+            android:textColor="@color/title_back"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/tv_welcome_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.1"
+            android:layout_marginLeft="4dp"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+</RelativeLayout>

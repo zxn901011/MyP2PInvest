@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">点点金融</string>
+    <string name="miaoshu">充值我们将以集成支付宝sdk支付金额演示充值功能</string>
+    <string name="tixian">提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服...</string>
+
+    <string-array name="invest_tab">
+        <item>全部理财</item>
+        <item>推荐理财</item>
+        <item>热门理财</item>
+    </string-array>
+</resources>
