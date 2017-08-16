@@ -51,6 +51,7 @@ public class UserInfoActivity extends BaseActivity {
     @Bind(R.id.tv_userphoto_change)
     TextView tvUserphotoChange;
 
+
     @Override
     protected void initTitle() {
         ivTitle.setVisibility(View.VISIBLE);

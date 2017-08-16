@@ -56,6 +56,8 @@ public class MainActivity extends BaseActivity {
     private MeFragment meFragment;
     private MoreFragment moreFragment;
     private FragmentTransaction ft;
+
+
     @Override
     protected void initTitle() {
     }

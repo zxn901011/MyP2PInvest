@@ -69,7 +69,7 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.btn_login)
     public void login(View view){//登陆按钮的点击事件
-        String number= etLoginNumber.getText().toString().trim();
+        final String number= etLoginNumber.getText().toString().trim();
         String password = etLoginPwd.getText().toString().trim();
         if (!TextUtils.isEmpty(number)&&!TextUtils.isEmpty(password)){
             String url= AppNetConfig.LOGIN;

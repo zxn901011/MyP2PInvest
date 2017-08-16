@@ -63,7 +63,6 @@ public class MeFragment extends BaseFragment {
     public MeFragment() {
     }
 
-
     @Override
     protected RequestParams getParams() {
         return null;
@@ -97,11 +96,11 @@ public class MeFragment extends BaseFragment {
         //2.获取对象信息，并设置给相应的视图显示
         //判断本地是否已经保存了头像的图片，如果有，则不再执行联网操作
         tvMeName.setText(user.getName());
-        boolean isExist=readImage();
+        boolean isExist = readImage();
         if (!isExist) {
             Picasso.with(this.getActivity()).load(user.getImageurl())
                     .into(circleImage);
-        }else {
+        } else {
             return;
         }
     }
@@ -130,9 +129,9 @@ public class MeFragment extends BaseFragment {
     }
 
     @OnClick(R.id.circle_image)
-    public void setting(View view){
+    public void setCircleImage(View view) {
         //启动用户信息界面的activity
-        ((BaseActivity)this.getActivity()).goToActivity(UserInfoActivity.class, null);
+        ((BaseActivity) this.getActivity()).goToActivity(UserInfoActivity.class, null);
     }
 
 
@@ -151,15 +150,15 @@ public class MeFragment extends BaseFragment {
 
     private boolean readImage() {
         File filesDir;
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){//判断sd卡是否挂载
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {//判断sd卡是否挂载
             //路径1：storage/sdcard/Android/data/包名/files
             filesDir = this.getActivity().getExternalFilesDir("");
-        }else {//手机内存存储
+        } else {//手机内存存储
             //路径2：data/data/包名/files
             filesDir = this.getActivity().getFilesDir();
         }
-        File file = new File(filesDir,"icon.png");
-        if (file.exists()){
+        File file = new File(filesDir, "icon.png");
+        if (file.exists()) {
             //存储到内存
             Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
             circleImage.setImageBitmap(bitmap);
@@ -167,12 +166,14 @@ public class MeFragment extends BaseFragment {
         }
         return false;
     }
+
     @OnClick(R.id.recharge)
-    public void reCharge(View view){
-        ((BaseActivity)this.getActivity()).goToActivity(RechargeActivity.class,null);
+    public void reCharge(View view) {
+        ((BaseActivity) this.getActivity()).goToActivity(RechargeActivity.class, null);
     }
+
     @OnClick(R.id.withdraw)
-    public void withdraw(View view){
+    public void withdraw(View view) {
 //        ((BaseActivity)this.getActivity()).goToActivity(RechargeActivity.class,null);
     }
 
