@@ -33,11 +33,11 @@ public class FlowLayout extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        //获取用户设置的宽高的模式和具体的值
-        int widthMode=MeasureSpec.getMode(widthMeasureSpec);
-        int heightMode=MeasureSpec.getMode(heightMeasureSpec);
-        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        //获取用户设置的宽高的和具体的值
+        int widthMode=MeasureSpec.getMode(widthMeasureSpec);//宽的模式
+        int heightMode=MeasureSpec.getMode(heightMeasureSpec);//高的模式
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);//获取最多的宽度
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);//获取最多的高度
 
         //如果用户使用的至多模式，那么使用如下两个变量计算真实的宽高
         int width=0;

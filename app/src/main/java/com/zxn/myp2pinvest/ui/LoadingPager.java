@@ -138,7 +138,7 @@ public abstract class LoadingPager extends FrameLayout {
                         }
                     });
                 }
-            },1000);
+            },2000);
         }
     }
 

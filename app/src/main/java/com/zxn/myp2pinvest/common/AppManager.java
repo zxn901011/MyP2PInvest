@@ -2,8 +2,6 @@ package com.zxn.myp2pinvest.common;
 
 import android.app.Activity;
 
-import com.zxn.myp2pinvest.activity.MainActivity;
-
 import java.util.Stack;
 
 /**
@@ -30,7 +28,7 @@ public class AppManager {
 
     public void addActivity(Activity activity) {
         if (activity != null) {
-            activityStack.push(activity);
+            activityStack.add(activity);
         }
     }
 
@@ -50,11 +48,6 @@ public class AppManager {
     //删除当前的activity
 
     public void removeCurrent(){
-        //方法1
-//        Activity activity=activityStack.get(activityStack.size()-1);
-//        activity.finish();
-//        activityStack.remove(activityStack.size()-1);
-
         //方法2
         Activity activity=activityStack.lastElement();
         activity.finish();
@@ -73,9 +66,5 @@ public class AppManager {
     //返回栈的大小
     public int size(){
         return activityStack.size();
-    }
-
-    public void add(BaseActivity mainActivity) {
-
     }
 }

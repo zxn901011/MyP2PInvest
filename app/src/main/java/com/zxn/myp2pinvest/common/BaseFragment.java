@@ -1,6 +1,5 @@
 package com.zxn.myp2pinvest.common;
 
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +17,7 @@ import butterknife.ButterKnife;
  */
 
 public abstract class BaseFragment extends Fragment {
+
     private LoadingPager loadingPager;
 
     @Override
@@ -54,13 +54,7 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-//        UiUtils.getHandler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                loadingPager.show();
-//            }
-//        },2000);
+        super.onActivityCreated(savedInstanceState);;
         show();
     }
 

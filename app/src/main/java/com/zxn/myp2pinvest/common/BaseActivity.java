@@ -1,6 +1,5 @@
 package com.zxn.myp2pinvest.common;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,7 +22,7 @@ public abstract class BaseActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-        AppManager.newInstance().add(this);
+        AppManager.newInstance().addActivity(this);
         initTitle();
         initData();
     }
@@ -43,11 +42,10 @@ public abstract class BaseActivity extends FragmentActivity {
             intent.putExtra("data", bundle);
         }
         startActivity(intent);
-        finish();
     }
 
     //销毁当前的activity的操作
-    public void removeCurrentActivity(Activity activity) {
+    public void removeCurrentActivity() {
         AppManager.newInstance().removeCurrent();
     }
     //销毁所有的activity
