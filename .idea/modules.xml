@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GestureLock/GestureLock.iml" filepath="$PROJECT_DIR$/GestureLock/GestureLock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MPChartExample/MPChartExample.iml" filepath="$PROJECT_DIR$/MPChartExample/MPChartExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyP2PInvest.iml" filepath="$PROJECT_DIR$/MyP2PInvest.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicator_library/ViewPagerIndicator_library.iml" filepath="$PROJECT_DIR$/ViewPagerIndicator_library/ViewPagerIndicator_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/alipay_demo/alipay_demo.iml" filepath="$PROJECT_DIR$/alipay_demo/alipay_demo.iml" />

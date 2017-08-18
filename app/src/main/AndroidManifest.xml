@@ -39,6 +39,7 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/StyledIndicators" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.UserInfoActivity" />
@@ -46,13 +47,64 @@
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
-            android:screenOrientation="behind"></activity>
+            android:screenOrientation="behind" />
         <activity
             android:name="com.alipay.sdk.auth.AuthActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
-            android:screenOrientation="behind"></activity>
-        <activity android:name=".activity.RechargeActivity"></activity>
+            android:screenOrientation="behind" />
+        <activity android:name=".activity.RechargeActivity" />
+        <activity android:name=".activity.WithDrawActivity" />
+        <activity android:name=".activity.LineCharActivity" />
+        <activity android:name=".activity.BarChartActivity" />
+        <activity android:name=".activity.PieChartActivity" />
+        <activity android:name=".activity.UserRegisterActivity"/>
+        <activity android:name=".activity.GestureEditActivity"/>
+        <activity android:name=".activity.GestureVerifyActivity"/>
+
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+
+            <intent-filter>
+                <data android:scheme="tencent429301963" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!--集成line客户端登录授权，需要添如下格式的过滤器-->
+            <intent-filter>
+                <data android:scheme="line.1477692153" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".apshare.ShareEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <meta-data android:name="Mob-AppKey" android:value="2046c32e32c53"/>
+        <meta-data android:name="Mob-AppSecret" android:value="455d5ed0a60adcd2db32b5809b7959c2"/>
     </application>
+
 
 </manifest>

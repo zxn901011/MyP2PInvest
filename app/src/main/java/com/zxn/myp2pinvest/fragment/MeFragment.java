@@ -16,9 +16,14 @@ import android.widget.TextView;
 import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
 import com.zxn.myp2pinvest.R;
+import com.zxn.myp2pinvest.activity.BarChartActivity;
+import com.zxn.myp2pinvest.activity.GestureVerifyActivity;
+import com.zxn.myp2pinvest.activity.LineCharActivity;
 import com.zxn.myp2pinvest.activity.LoginActivity;
+import com.zxn.myp2pinvest.activity.PieChartActivity;
 import com.zxn.myp2pinvest.activity.RechargeActivity;
 import com.zxn.myp2pinvest.activity.UserInfoActivity;
+import com.zxn.myp2pinvest.activity.WithDrawActivity;
 import com.zxn.myp2pinvest.bean.User;
 import com.zxn.myp2pinvest.common.BaseActivity;
 import com.zxn.myp2pinvest.common.BaseFragment;
@@ -103,6 +108,13 @@ public class MeFragment extends BaseFragment {
         } else {
             return;
         }
+        //判断是否开启了手势密码，如果开启了，先输入手势密码
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("secret_protect", Context.MODE_PRIVATE);
+        boolean isOpened = sharedPreferences.getBoolean("isOpened", false);
+        if (isOpened){
+            ((BaseActivity)this.getActivity()).goToActivity(GestureVerifyActivity.class,null);
+            return;
+        }
     }
 
     //给出提示，要求用户登陆
@@ -113,7 +125,6 @@ public class MeFragment extends BaseFragment {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        UiUtils.toast("进入登陆界面",false);
                         ((BaseActivity) MeFragment.this.getActivity()).goToActivity(LoginActivity.class, null);
                     }
                 })
@@ -133,7 +144,6 @@ public class MeFragment extends BaseFragment {
         //启动用户信息界面的activity
         ((BaseActivity) this.getActivity()).goToActivity(UserInfoActivity.class, null);
     }
-
 
     @Override
     public int getLayoutId() {
@@ -174,8 +184,22 @@ public class MeFragment extends BaseFragment {
 
     @OnClick(R.id.withdraw)
     public void withdraw(View view) {
-//        ((BaseActivity)this.getActivity()).goToActivity(RechargeActivity.class,null);
+        ((BaseActivity)this.getActivity()).goToActivity(WithDrawActivity.class,null);
     }
 
+    @OnClick(R.id.ll_touzi)
+    public void startLineChar(View view) {
+        ((BaseActivity)this.getActivity()).goToActivity(LineCharActivity.class,null);
+    }
+
+    @OnClick(R.id.ll_touzi_zhiguan)
+    public void startBarChar(View view) {
+        ((BaseActivity)this.getActivity()).goToActivity(BarChartActivity.class,null);
+    }
+
+    @OnClick(R.id.ll_zichan)
+    public void startPieChar(View view) {
+        ((BaseActivity)this.getActivity()).goToActivity(PieChartActivity.class,null);
+    }
 
 }

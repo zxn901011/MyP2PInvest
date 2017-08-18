@@ -1,1 +1,1 @@
-include ':app', ':ViewPagerIndicator_library', ':alipay_demo'
+include ':app', ':ViewPagerIndicator_library', ':alipay_demo', ':MPChartLib', ':MPChartExample', ':GestureLock'
