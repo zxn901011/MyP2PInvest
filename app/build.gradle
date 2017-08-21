@@ -31,15 +31,6 @@ dependencies {
     compile files('libs/alipaysecsdk.jar')
     compile files('libs/alipayutdid.jar')
     compile project(':MPChartLib')
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.youth.banner:banner:1.4.9'
-    compile 'com.android.support:design:25.3.1'
-    compile 'de.hdodenhof:circleimageview:2.1.0'
-    testCompile 'junit:junit:4.12'
     compile project(':GestureLock')
     compile files('libs/ShareSDK-YouDao-3.0.1.jar')
     compile files('libs/ShareSDK-Wechat-Moments-3.0.1.jar')
@@ -61,4 +52,13 @@ dependencies {
     compile files('libs/ShareSDK-Alipay-3.0.1.jar')
     compile files('libs/MobTools-2017.0801.1522.jar')
     compile files('libs/MobCommons-2017.0801.1522.jar')
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'com.android.support:design:25.3.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    testCompile 'junit:junit:4.12'
 }

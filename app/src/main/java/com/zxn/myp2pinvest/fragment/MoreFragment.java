@@ -1,12 +1,15 @@
 package com.zxn.myp2pinvest.fragment;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.annotation.IdRes;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -23,6 +26,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zxn.myp2pinvest.R;
 import com.zxn.myp2pinvest.activity.GestureEditActivity;
+import com.zxn.myp2pinvest.activity.GuiGuInvestActivity;
 import com.zxn.myp2pinvest.activity.UserRegisterActivity;
 import com.zxn.myp2pinvest.common.AppNetConfig;
 import com.zxn.myp2pinvest.common.BaseActivity;
@@ -95,6 +99,17 @@ public class MoreFragment extends BaseFragment {
         Fankui();
         //分享给好友
         shareToFriends();
+        //关于硅谷理财
+        aboutInvest();
+    }
+
+    private void aboutInvest() {
+        tvAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((BaseActivity) MoreFragment.this.getActivity()).goToActivity(GuiGuInvestActivity.class, null);
+            }
+        });
     }
 
     private void shareToFriends() {
@@ -132,19 +147,20 @@ public class MoreFragment extends BaseFragment {
         oks.show(MoreFragment.this.getActivity());
     }
 
-    private String department="不明确";
+    private String department = "不明确";
+
     private void Fankui() {
         tvMoreFankui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 View view = View.inflate(MoreFragment.this.getActivity(), R.layout.view_fankui, null);
-                final RadioGroup rgFankui= (RadioGroup) view.findViewById(R.id.rg_fankui);
+                final RadioGroup rgFankui = (RadioGroup) view.findViewById(R.id.rg_fankui);
                 final EditText etFankuiContent = (EditText) view.findViewById(R.id.et_fankui_content);
                 rgFankui.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                         RadioButton rb = (RadioButton) rgFankui.findViewById(checkedId);
-                        department=rb.getText().toString().trim();
+                        department = rb.getText().toString().trim();
                     }
                 });
                 new AlertDialog.Builder(MoreFragment.this.getActivity())
@@ -155,20 +171,21 @@ public class MoreFragment extends BaseFragment {
                                 //获取反馈的部门信息
                                 String content = etFankuiContent.getText().toString();
                                 //联网发送信息
-                                String url= AppNetConfig.FEEDBACK;
+                                String url = AppNetConfig.FEEDBACK;
                                 AsyncHttpClient client = new AsyncHttpClient();
-                                RequestParams params=new RequestParams();
-                                params.put("department",department);
-                                params.put("content",content);
-                                client.post(url,params,new AsyncHttpResponseHandler(){
+                                RequestParams params = new RequestParams();
+                                params.put("department", department);
+                                params.put("content", content);
+                                client.post(url, params, new AsyncHttpResponseHandler() {
                                     @Override
                                     public void onSuccess(String content) {
-                                        UiUtils.toast("发送反馈信息成功",false);
+                                        UiUtils.toast("发送反馈信息成功", false);
                                     }
+
                                     @Override
                                     public void onFailure(Throwable error, String content) {
 
-                                        UiUtils.toast("联网反馈信息失败",false);
+                                        UiUtils.toast("联网反馈信息失败", false);
                                     }
                                 });
                             }
@@ -178,6 +195,7 @@ public class MoreFragment extends BaseFragment {
             }
         });
     }
+
     private void contactService() {
         rlMoreContact.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,6 +209,9 @@ public class MoreFragment extends BaseFragment {
                                 String phoneNumber = tvContact.getText().toString().trim();
                                 Intent intent = new Intent(Intent.ACTION_CALL);
                                 intent.setData(Uri.parse("tel:" + phoneNumber));
+                                if (ActivityCompat.checkSelfPermission(MoreFragment.this.getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                    return;
+                                }
                                 MoreFragment.this.getActivity().startActivity(intent);
 
                             }
