@@ -92,10 +92,10 @@ public class WelcomeActivity extends Activity {
                     updateInfo = JSON.parseObject(content, UpdateInfo.class);
                     handler.sendEmptyMessage(UPDATE);
                 }
-
                 @Override
                 public void onFailure(Throwable error, String content) {
                     UiUtils.toast("请求联网数据失败",false);
+                    toMain();
                 }
             });
         }

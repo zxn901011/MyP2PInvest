@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import com.zxn.myp2pinvest.R;
 import com.zxn.myp2pinvest.common.BaseActivity;
+import com.zxn.myp2pinvest.utils.BitmapUtils;
 import com.zxn.myp2pinvest.utils.LogUtil;
 
 import java.io.File;
@@ -133,8 +134,8 @@ public class UserInfoActivity extends BaseActivity {
             Bundle extras=data.getExtras();
             Bitmap bitmap= (Bitmap) extras.get("data");
             //对获取的图片进行压缩处理,圆形处理
-//            bitmap= BitmapUtils.zoom(bitmap,userInfoPhoto.getWidth(),userInfoPhoto.getHeight());
-//            bitmap= BitmapUtils.circleBitmap(bitmap);
+            bitmap= BitmapUtils.zoom(bitmap,userInfoPhoto.getWidth(),userInfoPhoto.getHeight());
+            bitmap= BitmapUtils.circleBitmap(bitmap);
             //显示
             userInfoPhoto.setImageBitmap(bitmap);
             //上传到服务器
